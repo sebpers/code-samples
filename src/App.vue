@@ -1,10 +1,16 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <div class="container">
+      <div id="nav">
+        <router-link to="/">Home</router-link> |
+        <router-link to="/about">About</router-link> |
+        <router-link to="/html">HTML</router-link> |
+        <router-link to="/css">CSS</router-link> |
+        <router-link to="/javascript">JavaScript</router-link> |
+        <router-link to="/vue">Vue</router-link>
+      </div>
+      <router-view/>
+     </div>
   </div>
 </template>
 
@@ -28,5 +34,9 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.container {
+  /* background-color: #363536; */
 }
 </style>
