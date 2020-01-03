@@ -1,31 +1,23 @@
 <template>
-  <div class="card card_hover" id="card">
-    
+  <div class="card card_hover mt-5 p-3 m-md-5 p-md-5">
+		<div>
+			<div class="card_header " align="left">
+				{{cardObject.title}}
+			</div>
+			<div class="card_body" align="left">
+				<Prism :language="cardObject.codeType">{{ cardObject.content }}</Prism>
+			</div>
+		</div>
   </div>
 </template>
 
 <script>
-import '../css/card.css';
+import Prism from "vue-prism-component";
+import "../css/card.css";
 export default {
-  
-  props: ['prop']
-}
+  components: {
+    Prism
+  },
+  props: ["cardObject"]
+};
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>

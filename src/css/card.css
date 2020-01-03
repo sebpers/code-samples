@@ -1,12 +1,11 @@
-#card {
-  border: none;
-}
-
-#card_header {
-  border-bottom: none;
+.css_header {
+	color: blue;
 }
 
 .card-header {
+  border: none !important;
+}
+.card {
   border: none !important;
 }
 
@@ -15,3 +14,19 @@
   transition: all .2s;
   transform: scale(1.01);
 }
+
+.card_hover {
+
+  transition: all .2s;
+
+}
+
+@media screen and (max-width: 769px) {
+	.card_hover{
+  box-shadow: 0 14px 28px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+  transition: all .2s;
+  transform: scale(1.01);
+}
+}
+
+

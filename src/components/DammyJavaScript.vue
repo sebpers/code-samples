@@ -1,34 +1,26 @@
 <template>
   <div class="css">
-    <h1>CSS Exampels</h1>
 			<Card
 			:cardObject="cardObject"
 			>
-					<div class="css_header">CSS</div>
 			</Card>
-
-
 
   </div>
 </template>
 <script>
-import Card from "../components/Card.vue";
-
+import Card from "./Card.vue";
 
 export default {
   components: {
-		Card,
-
+    Card
   },
   data() {
     return {
 			cardObject: {
-     content: `.card {
-	border: none !important
-};`,
-			codeType: "css",
+     content: `const Name = Mihcele`,
+			codeType: "javascript",
 			className: 'css_header',
-			title: 'None Border'
+			title: 'Border Radius'
 			},
 
     };
