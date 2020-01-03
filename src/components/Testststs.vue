@@ -1,10 +1,6 @@
 <template>
   <div class="css">
-			<Card
-			:cardObject="cardObject"
-			>
-			</Card>
-
+    <Card :cardObject="cardObject"> </Card>
   </div>
 </template>
 <script>
@@ -16,14 +12,13 @@ export default {
   },
   data() {
     return {
-			cardObject: {
-     content: `const Name = kuk`,
-			codeType: "javascript",
-			className: 'css_header',
-			title: 'Border',
-			id: this._uid
-			},
-
+      cardObject: {
+        content: `const Name = kuk`,
+        codeType: "javascript",
+        className: "css_header",
+        title: "Border",
+        id: this._uid
+      }
     };
   }
 };
