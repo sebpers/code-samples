@@ -10,6 +10,8 @@
         <button @click="copyTestingCode(cardObject.id)" class="btn btn-block mt-2"  :class="[btnText ? ' btn-primary' : 'btn-success ', ]">
           {{btnText ? 'Copy' : 'Copied'}}
         </button>
+
+				{{cardObject}}
       </div>
     </div>
   </div>
@@ -32,6 +34,8 @@ export default {
   },
   methods: {
     copyTestingCode(id) {
+
+			console.log(id);
 
 
 
