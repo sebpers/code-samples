@@ -5,23 +5,16 @@
 				<dammy-java-script
 
 				></dammy-java-script>
-				<Test
-
-				></Test>
   </div>
 </template>
 
 <script>
 import DammyJavaScript from "../components/DammyJavaScript.vue"
-import Test from "../components/Testststs.vue"
 
 
 export default {
   components: {
 	DammyJavaScript,
-	Test
   },
-
-
   };
 </script>
