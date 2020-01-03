@@ -3,7 +3,6 @@
     <h1>This is an JavaScript page</h1>
 
 				<dammy-java-script></dammy-java-script>
-				<dammy-java-script></dammy-java-script>
   </div>
 </template>
 
