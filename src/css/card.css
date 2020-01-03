@@ -2,6 +2,18 @@
 	color: blue;
 }
 
+.javascript_header {
+	color: red;
+}
+
+.html_header {
+	color: purple;
+}
+
+.vue_header {
+	color: #42b983;
+}
+
 .card-header {
   border: none !important;
 }

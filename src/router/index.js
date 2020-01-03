@@ -36,7 +36,7 @@ const routes = [
     component: JavaScript
   },
   {
-    path: '/vuesnippets',
+    path: '/vue',
     name: 'VueSnippets',
     component: VueSnippets
   },

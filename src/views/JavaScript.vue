@@ -11,7 +11,6 @@
 <script>
 import DammyJavaScript from "../components/DammyJavaScript.vue"
 
-
 export default {
   components: {
 	DammyJavaScript,

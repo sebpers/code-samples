@@ -1,7 +1,7 @@
 <template>
   <div class="card card_hover mt-5 p-3 m-md-5 p-md-5">
     <div>
-      <div class="card_header" align="left">
+      <div :class="[cardObject.className]" align="left">
         {{ cardObject.title }}
       </div>
       <div class="card_body" align="left">

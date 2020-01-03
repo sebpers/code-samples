@@ -19,7 +19,7 @@ export default {
 			cardObject: {
      content: `const Name = Mihcele`,
 			codeType: "javascript",
-			className: 'css_header',
+			className: 'javascript_header',
 			title: 'Border Radius',
 			id: this._uid
 			},
