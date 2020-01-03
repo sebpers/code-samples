@@ -5,8 +5,9 @@
         {{ cardObject.title }}
       </div>
       <div class="card_body" align="left">
-        <Prism :language="cardObject.codeType">{{ cardObject.content }} </Prism>
-        <button @click="copyTestingCode" class="btn btn-success mt-2">
+        <Prism :id="cardObject.id" :language="cardObject.codeType">{{ cardObject.content }} </Prism>
+
+        <button @click="copyTestingCode(cardObject.id)" class="btn btn-block mt-2"  :class="[btnText ? ' btn-primary' : 'btn-success ', ]">
           {{btnText ? 'Copy' : 'Copied'}}
         </button>
       </div>
@@ -30,12 +31,17 @@ export default {
     };
   },
   methods: {
-    copyTestingCode() {
-      //
-      // al pre tags on the page
-      const pres = document.getElementsByTagName("pre");
+    copyTestingCode(id) {
 
-      const copyTextOne = pres[0].innerText;
+
+
+			let idOne = `${id}`;
+
+			const pres = document.getElementById(idOne);
+
+
+			// console.log(pres);
+      const copyTextOne = pres.innerText;
 
       // Create new element
       var el = document.createElement("textarea");
@@ -52,7 +58,7 @@ export default {
       document.execCommand("copy");
 
 
-		this.btnText = !this.btnText;
+			this.btnText = !this.btnText;
 			setTimeout(() => {
 				this.btnText = true
 			}, 1000);

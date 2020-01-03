@@ -28,7 +28,8 @@ export default {
 };`,
 			codeType: "css",
 			className: 'css_header',
-			title: 'None Border'
+			title: 'None Border',
+			id: this._uid
 			},
 
     };

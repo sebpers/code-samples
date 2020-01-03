@@ -17,10 +17,10 @@ export default {
   data() {
     return {
 			cardObject: {
-     content: `const Name = Mihcele`,
+     content: `const Name = kuk`,
 			codeType: "javascript",
 			className: 'css_header',
-			title: 'Border Radius',
+			title: 'Border',
 			id: this._uid
 			},
 
