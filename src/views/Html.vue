@@ -1,12 +1,8 @@
 <template>
   <div class="css">
     <h1>Html Exampels</h1>
-    <Card :cardObject="cardObject">
-
-    </Card>
-    <Card :cardObject="cardObjectOne">
-
-    </Card>
+    <Card :codeSnippet="codeSnippet"> </Card>
+    <Card :codeSnippet="codeSnippetOne"> </Card>
   </div>
 </template>
 <script>
@@ -18,16 +14,17 @@ export default {
   },
   data() {
     return {
-      cardObject: {
+      codeSnippet: {
         content: `.card {
 	border: none
 };`,
         codeType: "html",
+        //genre ? more
         className: "html_header",
         title: "Html Border",
         id: this._uid
       },
-      cardObjectOne: {
+      codeSnippetOne: {
         content: `.card html {
 	border: 2px solid black
 };`,

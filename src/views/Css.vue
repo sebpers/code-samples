@@ -1,8 +1,7 @@
 <template>
   <div class="css">
     <h1>CSS Exampels</h1>
-    <Card :cardObject="cardObject">
-    </Card>
+    <Card :codeSnippet="codeSnippet"> </Card>
   </div>
 </template>
 <script>
@@ -14,7 +13,7 @@ export default {
   },
   data() {
     return {
-      cardObject: {
+      codeSnippet: {
         content: `.card {
 	border: none !important
 };`,

@@ -9,14 +9,25 @@
         <router-link to="/javascript">JavaScript</router-link> |
         <router-link to="/vue">Vue</router-link>
       </div>
-      <router-view/>
-     </div>
+      <AddCodeSnippet />
+      <router-view />
+    </div>
   </div>
 </template>
 
+<script>
+import AddCodeSnippet from "./components/addCodeSnippet";
+
+export default {
+  components: {
+    AddCodeSnippet
+  }
+};
+</script>
+
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

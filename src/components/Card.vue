@@ -1,17 +1,21 @@
 <template>
   <div class="card card_hover mt-5 p-3 m-md-5 p-md-5">
     <div>
-      <div :class="[cardObject.className]" align="left">
-        {{ cardObject.title }}
+      <div :class="[codeSnippet.className]" align="left">
+        {{ codeSnippet.title }}
       </div>
       <div class="card_body" align="left">
-        <Prism :id="cardObject.id" :language="cardObject.codeType">{{ cardObject.content }} </Prism>
+        <Prism :id="codeSnippet.id" :language="codeSnippet.codeType"
+          >{{ codeSnippet.content }}
+        </Prism>
 
-        <button @click="copyTestingCode(cardObject.id)" class="btn btn-block mt-2"  :class="[btnText ? ' btn-primary' : 'btn-success ', ]">
-          {{btnText ? 'Copy' : 'Copied'}}
+        <button
+          @click="copyTestingCode(codeSnippet.id)"
+          class="btn btn-block mt-2"
+          :class="[btnText ? ' btn-primary' : 'btn-success ']"
+        >
+          {{ btnText ? "Copy" : "Copied" }}
         </button>
-
-				{{cardObject}}
       </div>
     </div>
   </div>
@@ -25,26 +29,20 @@ export default {
     Prism
   },
 
-  props: ["cardObject"],
+  props: ["codeSnippet"],
 
   data() {
     return {
-			btnText: true
+      btnText: true
     };
   },
   methods: {
     copyTestingCode(id) {
+      let idOne = `${id}`;
 
-			console.log(id);
+      const pres = document.getElementById(idOne);
 
-
-
-			let idOne = `${id}`;
-
-			const pres = document.getElementById(idOne);
-
-
-			// console.log(pres);
+      // console.log(pres);
       const copyTextOne = pres.innerText;
 
       // Create new element
@@ -61,15 +59,14 @@ export default {
       // Copy text to clipboard
       document.execCommand("copy");
 
+      this.btnText = !this.btnText;
+      setTimeout(() => {
+        this.btnText = true;
+      }, 1000);
 
-			this.btnText = !this.btnText;
-			setTimeout(() => {
-				this.btnText = true
-			}, 1000);
-
-			let removeEl = document.querySelector("#codeCopy")
-			// Remove temporary element
-      removeEl.remove()
+      let removeEl = document.querySelector("#codeCopy");
+      // Remove temporary element
+      removeEl.remove();
     }
   }
 };

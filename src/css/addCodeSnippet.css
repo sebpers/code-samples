@@ -1,0 +1,10 @@
+.relative {
+  position: relative;
+}
+
+.positionFixed {
+  position: fixed;
+  right: 40px;
+  top: 15%;
+  z-index: 10000;
+}
