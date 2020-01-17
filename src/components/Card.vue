@@ -16,6 +16,9 @@
         >
           {{ btnText ? "Copy" : "Copied" }}
         </button>
+        <p>text below</p>
+        {{ codeSnippet }}
+        <a :href="codeSnippet.linkToCode" target="_blank">CodeIcon</a>
       </div>
     </div>
   </div>
