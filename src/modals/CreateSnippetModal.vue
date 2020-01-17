@@ -1,85 +1,37 @@
 <template>
   <div>
-    <b-modal
-      v-model="showModal"
-      title="Modal Variants"
-      :header-bg-variant="headerBgVariant"
-      :header-text-variant="headerTextVariant"
-      :body-bg-variant="bodyBgVariant"
-      :body-text-variant="bodyTextVariant"
-      :footer-bg-variant="footerBgVariant"
-      :footer-text-variant="footerTextVariant"
-    >
-      <b-container fluid>
-        <b-row class="mb-1 text-center">
-          <b-col cols="3"></b-col>
-          <b-col>Background</b-col>
-          <b-col>Text</b-col>
-        </b-row>
-
-        <b-row class="mb-1">
-          <b-col cols="3">Header</b-col>
-          <b-col>
-            <b-form-select
-              v-model="headerBgVariant"
-              :options="variants"
-            ></b-form-select>
-          </b-col>
-          <b-col>
-            <b-form-select
-              v-model="headerTextVariant"
-              :options="variants"
-            ></b-form-select>
-          </b-col>
-        </b-row>
-
-        <b-row class="mb-1">
-          <b-col cols="3">Body</b-col>
-          <b-col>
-            <b-form-select
-              v-model="bodyBgVariant"
-              :options="variants"
-            ></b-form-select>
-          </b-col>
-          <b-col>
-            <b-form-select
-              v-model="bodyTextVariant"
-              :options="variants"
-            ></b-form-select>
-          </b-col>
-        </b-row>
-
-        <b-row>
-          <b-col cols="3">Footer</b-col>
-          <b-col>
-            <b-form-select
-              v-model="footerBgVariant"
-              :options="variants"
-            ></b-form-select>
-          </b-col>
-          <b-col>
-            <b-form-select
-              v-model="footerTextVariant"
-              :options="variants"
-            ></b-form-select>
-          </b-col>
-        </b-row>
-      </b-container>
-
-      <template v-slot:modal-footer>
-        <div class="w-100">
-          <p class="float-left">Modal Footer Content</p>
-          <b-button
-            variant="primary"
-            size="sm"
-            class="float-right"
-            @click="show = !showModal"
-          >
-            Close
-          </b-button>
+    <div class="custom_modal" v-if="show">
+      <form class="custom_modal-content p-5" @submit.prevent="saveCode">
+        <div>
+          <b-form-select
+            class="mb-4 mt-4"
+            v-model="selected"
+            :options="codeType"
+          ></b-form-select>
+          <b-form-input
+            class="mb-4"
+            v-model="snippet.title"
+            placeholder="Title of your codeSnippet"
+          ></b-form-input>
+          <b-form-textarea
+            id="textarea"
+            v-model="snippet.content"
+            placeholder="Enter your code...."
+            rows="3"
+            max-rows="6"
+            class="mb-4"
+          ></b-form-textarea>
+           <b-form-input
+            class="mb-5"
+            v-model="snippet.linkToCode"
+            placeholder="Url to code on codepen/jsfiddle etc.."
+          ></b-form-input>
+          <button class="btn btn-success mr-2">Save</button>
+          <button class="btn btn-danger ml-2" @click.prevent="closeModal(false)">Cancel</button>
         </div>
-      </template>
-    </b-modal>
+      </form>
+    </div>
+    <div class="overlay" @click="closeModal(false)"></div>
   </div>
 </template>
 
@@ -90,23 +42,64 @@ export default {
   data() {
     return {
       show: this.showModal,
-      variants: [
-        "primary",
-        "secondary",
-        "success",
-        "warning",
-        "danger",
-        "info",
-        "light",
-        "dark"
-      ],
-      headerBgVariant: "dark",
-      headerTextVariant: "light",
-      bodyBgVariant: "light",
-      bodyTextVariant: "dark",
-      footerBgVariant: "warning",
-      footerTextVariant: "dark"
+      selected: null,
+      
+      snippet: {
+        title: null,
+        content: null,
+        linkToCode: null,
+      },
+      codeType: [
+        { value: null, text: "Please select an option" },
+        { value: "html", text: "HTML" },
+        { value: "css", text: "CSS" },
+        { value: "javascript", text: "JavaScript" },
+        { value: "javascript", text: "Vue" }
+      ]
     };
+  },
+
+  mounted() {
+    console.log("showModal: ", this.showModal);
+  },
+
+  methods: {
+    closeModal(value) {
+      console.log("value: ", value);
+      this.$emit("closeModal", value);
+    },
+
+    saveCode() {
+      console.log("saved");
+    }
   }
 };
 </script>
+
+<style>
+  .custom_modal {
+    /* position: relative; */
+  }
+  
+  .custom_modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: 3;
+    background-color: white;
+    border-radius: 5px;
+  }
+
+  .overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: grey;
+    z-index: 2;
+  }
+
+</style>
