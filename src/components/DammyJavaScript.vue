@@ -17,6 +17,7 @@ export default {
         codeType: "javascript",
         className: "javascript_header",
         title: "Border Radius",
+        linkToCode: "http://www.codepen.com",
         id: this._uid
       }
     };
